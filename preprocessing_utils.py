@@ -2,8 +2,8 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 
 
-# categorical mapper
 class Mapper(BaseEstimator, TransformerMixin):
+    """Map categories to defined mapping"""
 
     def __init__(self, variables, mappings):
 
@@ -25,8 +25,8 @@ class Mapper(BaseEstimator, TransformerMixin):
         return X
 
 
-# Replacing 999 witn np.Nan
 class Missing_Adding(BaseEstimator, TransformerMixin):
+    """Replacie 999 witn np.Nan"""
 
     def __init__(self, variables):
 
@@ -46,8 +46,10 @@ class Missing_Adding(BaseEstimator, TransformerMixin):
 
         return X
 
-# Making sure there is no zero values
+
 class NonZero(BaseEstimator, TransformerMixin):
+    """Add to feature 0.01 for avoid 0 value
+     and enable logarithm calculation"""
 
     def __init__(self, variables):
 
